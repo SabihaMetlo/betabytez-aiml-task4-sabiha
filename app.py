@@ -2,6 +2,9 @@ from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
+from langchain_groq import ChatGroq
+from dotenv import load_dotenv
+import os
 
 def load_text_with_encoding(filepath):
     encodings = ["utf-8", "utf-16", "cp1252"]
@@ -45,3 +48,33 @@ vector_store = FAISS.from_documents(chunks, embedding_model)
 # Save the index to disk so you don't have to re-embed every time you run the app
 vector_store.save_local("faiss_index")
 print("Vector store created and saved successfully")
+
+load_dotenv()  # reads your .env file
+
+llm = ChatGroq(
+    model="llama-3.1-8b-instant",
+    api_key=os.getenv("GROQ_API_KEY")
+)
+
+query = "LangChain LlamaIndex FAISS ChromaDB Streamlit RAG chatbot"
+results = vector_store.similarity_search(query, k=3)
+
+print("--- Retrieved chunks ---")
+for i, doc in enumerate(results):
+    print(f"Chunk {i+1}: {doc.page_content[:150]}...")
+    print()
+
+context = "\n\n".join([doc.page_content for doc in results])
+
+prompt = f"""Answer the question using ONLY the context below. 
+If the answer is not in the context, say "I don't have information about that in the provided documents."
+
+Context:
+{context}
+
+Question: {query}
+
+Answer:"""
+
+response = llm.invoke(prompt)
+print(response.content)
