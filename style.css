@@ -1,0 +1,149 @@
+.stApp { background-color: #0e1117; }
+
+.stChatMessage { background-color: #1a1d24; border-radius: 12px; padding: 10px; }
+[data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-user"]) {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+[data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-user"]) .stMarkdown {
+    text-align: right;
+}
+
+[data-testid="stSidebar"] {
+    background-color: #17191f;
+    border-right: 1px solid #2a2d35;
+    width: 280px !important;
+    padding: 8px 12px;
+}
+[data-testid="stSidebar"] .block-container {
+    padding-top: 0 !important;
+}
+[data-testid="stSidebar"] button {
+    background-color: transparent;
+    border: 1px solid #2a2d38 !important;
+    text-align: left;
+    border-radius: 8px;
+    color: #e6e6e6;
+    padding: 8px 12px !important;
+    margin-bottom: 2px !important;
+    font-size: 14px !important;
+    justify-content: flex-start !important;
+}
+[data-testid="stSidebar"] button:hover {
+    background-color: #23262e !important;
+    border: 1px solid #7F77DD !important;
+}
+section[data-testid="stSidebar"] > div {
+    padding-top: 0.5rem !important;
+}
+[data-testid="stSidebarHeader"] {
+    min-height: 0 !important;
+    padding-bottom: 0 !important;
+}
+[data-testid="stSidebarUserContent"] button {
+    width: 100% !important;
+}
+
+.recent-active button {
+    background-color: #2a2d38 !important;
+    border-left: 3px solid #7F77DD !important;
+}
+.sidebar-section-label {
+    font-size: 12px;
+    color: #8a8d98;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 16px 0 4px 4px;
+}
+.sidebar-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 280px;
+    padding: 16px 12px;
+    font-size: 12px;
+    color: #8a8d98;
+    background-color: #17191f;
+    border-top: 1px solid #2a2d35;
+    z-index: 999;
+}
+
+[data-testid="stChatInput"] {
+    border: 1px solid #7F77DD !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+}
+[data-testid="stChatInput"] textarea {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+[data-testid="stChatInputSubmitButton"] {
+    background-color: #7F77DD !important;
+}
+[data-testid="stChatInputSubmitButton"]:hover {
+    background-color: #6a61c9 !important;
+}
+
+.user-msg {
+    background-color: #EDECE6;
+    color: #1a1a1a;
+    padding: 10px 16px;
+    border-radius: 14px;
+    max-width: 70%;
+    margin-left: auto;
+    margin-bottom: 8px;
+    text-align: left;
+}
+.ai-msg {
+    color: #e6e6e6;
+    padding: 8px 4px;
+    margin-bottom: 20px;
+    max-width: 85%;
+    text-align: left;
+}
+
+[data-testid="stSidebarUserContent"] div[data-testid="stHorizontalBlock"] {
+    align-items: center;
+    gap: 4px;
+}
+[data-testid="stSidebarUserContent"] div[data-testid="stHorizontalBlock"] button {
+    height: 38px;
+}
+
+[data-testid="stPopoverBody"] {
+    background-color: #1a1d24;
+    border: 1px solid #2a2d35;
+    padding: 4px;
+    min-width: 160px !important;
+    width: auto !important;
+}
+[data-testid="stPopoverBody"] button {
+    border: none !important;
+    text-align: left !important;
+    justify-content: flex-start !important;
+    background-color: transparent !important;
+    padding: 6px 10px !important;
+    font-size: 13px !important;
+}
+[data-testid="stPopoverBody"] button:hover {
+    background-color: #23262e !important;
+}
+[data-testid="stPopoverBody"] button[kind="secondary"][data-testid*="delete"] {
+    color: #e5484d !important;
+}
+[data-testid="stPopoverBody"] button[data-testid*="delete"]:hover {
+    background-color: rgba(229, 72, 77, 0.1) !important;
+}
+[data-testid="stPopoverBody"] [data-testid="stVerticalBlock"] {
+    gap: 0px !important;
+}
+[data-testid="stPopoverBody"] .element-container {
+    margin-bottom: 0 !important;
+}
+[data-testid="stPopover"] svg {
+    display: none !important;
+}
+button[aria-expanded] svg {
+    display: none !important;
+}
